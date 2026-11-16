@@ -75,21 +75,22 @@ export default async function Pagina({ params }: Props) {
           </div>
 
           <aside className="space-y-8 md:sticky md:top-28 md:self-start">
-            {exame.foto && (
-              <figure>
+            {exame.fotos.map((f, n) => (
+              <figure key={f.src}>
                 <Image
-                  src={exame.foto}
-                  alt={exame.fotoAlt ?? exame.nomeCurto}
-                  width={1080}
-                  height={960}
+                  src={f.src}
+                  alt={f.alt}
+                  width={f.largura}
+                  height={f.altura}
+                  priority={n === 0}
                   sizes="(min-width: 768px) 40vw, 100vw"
-                  className="w-full rounded-2xl object-cover"
+                  className="w-full rounded-2xl"
                 />
-                {exame.fotoIlustrativa && (
-                  <figcaption className="mt-2 text-sm text-marinho-claro">Imagem ilustrativa.</figcaption>
-                )}
+                <figcaption className="mt-2 text-sm text-marinho-claro">
+                  {f.ilustrativa ? "Imagem ilustrativa." : "Foto da Cardio Clinic."}
+                </figcaption>
               </figure>
-            )}
+            ))}
             <div className="rounded-2xl bg-salvia p-6">
               <h2 className="font-sans text-base font-semibold">Quando costuma ser pedido</h2>
               <ul className="mt-3 space-y-2">

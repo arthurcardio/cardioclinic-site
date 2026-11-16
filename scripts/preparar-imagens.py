@@ -50,8 +50,19 @@ def medicos():
         im.save(out, quality=84, optimize=True, progressive=True)
         print(f"{f.name}: {f.stat().st_size//1024} KB -> {out.stat().st_size//1024} KB")
 
+def exames():
+    """Fotos ilustrativas dos exames (nao sao da clinica)."""
+    (DEST / "exames").mkdir(parents=True, exist_ok=True)
+    for f in sorted((ORIG / "exames-ilustrativas").glob("*.png")):
+        im = Image.open(f).convert("RGB")
+        im.thumbnail((1600, 1600), Image.LANCZOS)
+        out = DEST / "exames" / (f.stem + ".jpg")
+        im.save(out, quality=84, optimize=True, progressive=True)
+        print(f"{f.name}: {f.stat().st_size//1024} KB -> {out.stat().st_size//1024} KB {im.size}")
+
 if __name__ == "__main__":
     (DEST / "clinica").mkdir(parents=True, exist_ok=True)
     (DEST / "medicos").mkdir(parents=True, exist_ok=True)
     clinica()
     medicos()
+    exames()

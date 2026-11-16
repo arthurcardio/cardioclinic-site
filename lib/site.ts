@@ -266,6 +266,15 @@ export const especialidades: Especialidade[] = [
 
 export type Pergunta = { pergunta: string; resposta: string };
 
+export type Foto = {
+  src: string;
+  alt: string;
+  largura: number;
+  altura: number;
+  /** true quando a foto nao e da clinica: a pagina mostra "Imagem ilustrativa". */
+  ilustrativa?: boolean;
+};
+
 export type Exame = {
   slug: string;
   rota: string;
@@ -281,10 +290,7 @@ export type Exame = {
   comoEFeito: string[];
   preparo: string[];
   realizadoPor?: string; // slug do medico, quando o exame tem medico fixo
-  foto?: string;
-  fotoAlt?: string;
-  /** true quando a foto nao e da clinica: a pagina mostra "Imagem ilustrativa". */
-  fotoIlustrativa?: boolean;
+  fotos: Foto[];
   faq: Pergunta[];
 };
 
@@ -321,8 +327,10 @@ export const exames: Exame[] = [
       "No dia do exame, evite creme ou óleo no tórax: eles atrapalham a fixação dos eletrodos.",
       "Venha com roupa fácil de abrir na frente.",
     ],
-    foto: "/img/clinica/sala-ecg.jpg",
-    fotoAlt: "Sala onde é feito o eletrocardiograma na Cardio Clinic",
+    fotos: [
+      { src: "/img/exames/eletrocardiograma.jpg", alt: "Homem deitado com eletrodos no tórax ao lado do aparelho de eletrocardiograma", largura: 800, altura: 600, ilustrativa: true },
+      { src: "/img/clinica/sala-ecg.jpg", alt: "Sala onde é feito o eletrocardiograma na Cardio Clinic", largura: 1080, altura: 960 },
+    ],
     faq: [
       {
         pergunta: "O eletrocardiograma dói?",
@@ -369,6 +377,7 @@ export const exames: Exame[] = [
     ],
     preparo: [],
     realizadoPor: "caroline-molina",
+    fotos: [{ src: "/img/exames/ecocardiograma.jpg", alt: "Profissional de saúde faz ecocardiograma em paciente deitado, com as imagens do coração na tela do aparelho", largura: 1114, altura: 844, ilustrativa: true }],
     faq: [
       {
         pergunta: "O ecocardiograma tem radiação?",
@@ -417,6 +426,7 @@ export const exames: Exame[] = [
       "Não passe creme ou óleo no tórax.",
       "Venha com uma camisa larga, que ajuda a acomodar os fios.",
     ],
+    fotos: [{ src: "/img/exames/holter-24h.jpg", alt: "Pessoa com eletrodos colados no tórax segurando o gravador do Holter", largura: 800, altura: 538, ilustrativa: true }],
     faq: [
       {
         pergunta: "Posso tomar banho com o Holter?",
@@ -469,6 +479,7 @@ export const exames: Exame[] = [
       "Tome banho antes de vir: o aparelho não pode molhar.",
       "Mantenha seus remédios, a não ser que o médico oriente diferente.",
     ],
+    fotos: [{ src: "/img/exames/mapa-24h.jpg", alt: "Homem com a braçadeira do MAPA no braço e o aparelho preso à cintura", largura: 365, altura: 250, ilustrativa: true }],
     faq: [
       {
         pergunta: "Posso tomar banho com o MAPA?",
@@ -523,6 +534,7 @@ export const exames: Exame[] = [
       "Não fume antes do exame.",
       "Sobre os remédios de uso contínuo, siga a orientação do médico que pediu o exame.",
     ],
+    fotos: [{ src: "/img/exames/teste-ergometrico.jpg", alt: "Homem com eletrodos no tórax corre na esteira durante teste ergométrico, acompanhado por profissional de saúde", largura: 900, altura: 506, ilustrativa: true }],
     faq: [
       {
         pergunta: "Preciso parar meus remédios para o teste ergométrico?",
@@ -573,6 +585,7 @@ export const exames: Exame[] = [
       "O resultado depende do seu esforço, e quem aplica o exame orienta cada sopro. Soprar com força pode dar uma tontura leve e passageira.",
     ],
     preparo: [],
+    fotos: [{ src: "/img/exames/espirometria.jpg", alt: "Mulher com clipe no nariz sopra no espirômetro, orientada por profissional de saúde", largura: 800, altura: 1067, ilustrativa: true }],
     faq: [
       {
         pergunta: "A espirometria dói?",
@@ -621,6 +634,7 @@ export const exames: Exame[] = [
       "Avise a médica antes do exame se você usa anticoagulante ou tem marca-passo.",
     ],
     realizadoPor: "izadora-lopes-lima",
+    fotos: [{ src: "/img/exames/eletroneuromiografia.jpg", alt: "Eletrodos na mão e no punho de uma paciente durante o estudo de condução nervosa da eletroneuromiografia", largura: 768, altura: 462, ilustrativa: true }],
     faq: [
       {
         pergunta: "A eletroneuromiografia dói?",
