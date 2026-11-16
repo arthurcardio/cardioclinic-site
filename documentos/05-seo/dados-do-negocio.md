@@ -4,7 +4,7 @@
 - Endereço: Rua Rafael Ayala, 35, Jardim Paulistano, Presidente Prudente - SP, CEP 19013-740
 - Telefone e WhatsApp: +55 18 98827-5450, exibido como (18) 98827-5450
 - E-mail: cardioclinic.prudente@gmail.com
-- Horário: das 8h às 18h [dias da semana a confirmar; até lá, considerar segunda a sexta]
+- Horário: segunda a sexta, das 8h às 18h
 - Instagram: https://www.instagram.com/cardioclinic.prudente/
 - YouTube: ainda não existe
 - Domínio: www.cardioclinicprudente.com.br (versão principal COM www; a sem www redireciona para ela). Registrado no Registro.br. Não há e-mail no domínio.

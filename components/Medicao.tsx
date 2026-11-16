@@ -11,7 +11,8 @@ import {
 } from "@/lib/consentimento";
 
 // IDs cadastrados na Vercel (Settings > Environment Variables). Sem ID, nada carrega.
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+// O ID do Analytics e publico (aparece no codigo de qualquer site), por isso tem valor padrao.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-WKLSZV6GWJ";
 const ADS_ID = process.env.NEXT_PUBLIC_ADS_ID;
 const ADS_CONVERSAO = process.env.NEXT_PUBLIC_ADS_CONVERSAO; // formato AW-XXXX/rotulo
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;

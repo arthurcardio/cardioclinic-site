@@ -18,7 +18,7 @@ export const clinica = {
   telefoneE164: "+5518988275450",
   whatsapp: "5518988275450",
   email: "cardioclinic.prudente@gmail.com",
-  horario: "Das 8h às 18h",
+  horario: "Segunda a sexta, das 8h às 18h",
   instagram: "https://www.instagram.com/cardioclinic.prudente/",
   mapa: "https://www.google.com/maps/search/?api=1&query=Rua+Rafael+Ayala%2C+35%2C+Jardim+Paulistano%2C+Presidente+Prudente+-+SP",
   atendimento: "Atendimento particular, com desconto para convênios funerários.",

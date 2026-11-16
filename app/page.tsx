@@ -26,6 +26,14 @@ function SchemaClinica() {
       postalCode: clinica.endereco.cep,
       addressCountry: "BR",
     },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+    ],
     sameAs: [clinica.instagram],
     medicalSpecialty: ["Cardiovascular", "Neurologic", "Geriatric", "Pulmonary"],
   };

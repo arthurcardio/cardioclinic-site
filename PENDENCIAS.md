@@ -4,9 +4,10 @@
 Feito no código: página "sobre", política de privacidade, banner de cookies, medição (GA4, Google Ads, pixel da Meta) e cabeçalhos de segurança.
 
 Falta, nesta ordem:
-- [ ] Criar a propriedade do Google Analytics 4 e cadastrar `NEXT_PUBLIC_GA_ID` na Vercel.
+- [x] Google Analytics 4 ligado (G-WKLSZV6GWJ, já no código).
+- [ ] No GA4, marcar `whatsapp_click` como evento principal (só aparece depois do primeiro clique real).
 - [ ] Google Ads: criar a conversão "Clique no WhatsApp" e cadastrar `NEXT_PUBLIC_ADS_ID` e `NEXT_PUBLIC_ADS_CONVERSAO`.
-- [ ] Meta: cadastrar `NEXT_PUBLIC_META_PIXEL_ID`.
+- [ ] Meta: a clínica ainda NÃO tem conta de anúncios. Criar o Gerenciador de Negócios e o pixel quando for anunciar no Instagram, e cadastrar `NEXT_PUBLIC_META_PIXEL_ID` na Vercel. Até lá o pixel não carrega.
 - [ ] Revisão médica final dos textos.
 - [ ] Apontar o domínio no Registro.br para a Vercel (principal com www).
 - [ ] Cadastrar `SITE_LIBERADO=1` na Vercel e publicar de novo.
@@ -16,7 +17,7 @@ Falta, nesta ordem:
 Atualizado em 16/11/2026.
 
 ## Antes de construir (resolver com o Dr. Arthur)
-- [ ] Dias de funcionamento: o horário é das 8h às 18h; confirmar se é de segunda a sexta e se abre aos sábados.
+- [x] Horário: segunda a sexta, das 8h às 18h.
 - [ ] Itens [CONFIRMAR] em `documentos/02-conteudo/especialidades-e-exames.md` (preparo, duração e prazo de resultado de cada exame).
 - [ ] Itens [CONFIRMAR] em `documentos/02-conteudo/faq.md` (pedido médico, formas de pagamento, estacionamento).
 - [ ] RQE da Dra. Caroline: confirmar se há RQE separado de Ecocardiografia.
