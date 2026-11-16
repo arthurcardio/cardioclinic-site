@@ -1,5 +1,6 @@
 import {
   clinica,
+  exameEmFrase,
   especialidades,
   exames,
   medicos,
@@ -57,7 +58,7 @@ export const contatoConsultaMedico = (m: Medico): Contato => ({
 });
 
 export const contatoExameMedico = (m: Medico, e: Exame): Contato => ({
-  mensagem: `Olá! Vim pelo site e gostaria de agendar um exame (${e.nomeCurto}) com ${artigo(m)} ${nomeCompleto(m)}.`,
+  mensagem: `Olá! Vim pelo site e gostaria de agendar um exame (${exameEmFrase(e)}) com ${artigo(m)} ${nomeCompleto(m)}.`,
   tipo: "medico",
   item: `${m.slug}:${e.slug}`,
   acao: "exame",

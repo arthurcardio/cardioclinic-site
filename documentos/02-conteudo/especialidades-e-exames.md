@@ -72,3 +72,9 @@ Os itens marcados com [CONFIRMAR] dependem da rotina da clínica.
 
 ## Pendências de foto
 Não há foto dos equipamentos de ecocardiograma, esteira, espirômetro e ENMG. As páginas desses exames saem sem foto do equipamento; NÃO usar foto de banco de imagem fingindo ser da clínica. A única foto de exame disponível é `03-visual/clinica/sala-ecg.jpg`.
+
+## Atualização de 16/11/2026
+- Novos exames: bioimpedância (realizada pela Dra. Mariana Gea Del Trejo) e exame do sono Biologix (da clínica).
+- Teste ergométrico: realizado pelo Dr. Arthur A. Zogheib Pinatto.
+- Espirometria: realizada pela Dra. Bárbara Gonçales Olivo.
+- Os textos em vigor estão em `lib/site.ts`.

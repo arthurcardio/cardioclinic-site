@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { exames, medicoPorSlug, nomeCompleto, rotaMedico } from "@/lib/site";
+import { exameEmFrase, exames, medicoPorSlug, nomeCompleto, rotaMedico } from "@/lib/site";
 import { contatoExame } from "@/lib/whatsapp";
 import { BotaoWhatsApp } from "@/components/WhatsApp";
 import { Perguntas, Revisao, SchemaFaq, Secao, Trilha } from "@/components/Blocos";
@@ -39,7 +39,7 @@ export default async function Pagina({ params }: Props) {
           <h1 className="mt-8 max-w-[16ch] text-[2.6rem] sm:text-5xl">{exame.titulo}</h1>
           <p className="mt-5 max-w-[55ch] text-lg text-marinho-claro">{exame.oQueE}</p>
           <BotaoWhatsApp contato={contatoExame(exame)} className="mt-8">
-            Agendar {exame.nomeCurto.toLowerCase().replace("mapa", "MAPA").replace("holter", "Holter")}
+            Agendar {exameEmFrase(exame)}
           </BotaoWhatsApp>
         </div>
       </section>

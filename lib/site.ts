@@ -60,7 +60,7 @@ export const medicos: Medico[] = [
     apresentacao: "Cardiologista",
     foto: "/img/medicos/dr-arthur-zogheib-pinatto.jpg",
     resumo:
-      "Diretor técnico da clínica. Atende consultas de cardiologia e faz a avaliação do coração de quem pratica ou quer começar a praticar esporte.",
+      "Diretor técnico da clínica. Atende consultas de cardiologia, faz a avaliação do coração de quem pratica ou quer começar a praticar esporte e realiza o teste ergométrico.",
     formacao: [
       "Graduado em Medicina pela Universidade do Oeste Paulista (UNOESTE)",
       "Residência de Clínica Médica no Hospital Regional de Presidente Prudente (HRPP)",
@@ -72,7 +72,7 @@ export const medicos: Medico[] = [
       "Membro titular da Sociedade Brasileira de Cardiologia (SBC)",
     ],
     especialidades: ["cardiologia"],
-    exames: [],
+    exames: ["teste-ergometrico"],
     consultaDe: "cardiologia",
   },
   {
@@ -105,7 +105,7 @@ export const medicos: Medico[] = [
     apresentacao: "Médica | Atuação em cardiologia",
     foto: "/img/medicos/dra-mariana-gea-del-trejo.jpg",
     resumo:
-      "Atende com foco em saúde cardiovascular e mudança do estilo de vida.",
+      "Atende com foco em saúde cardiovascular e mudança do estilo de vida, e é quem realiza a bioimpedância na clínica.",
     formacao: [
       "Graduada em Medicina pela Universidade do Oeste Paulista (UNOESTE)",
       "Residência em Clínica Médica pelo Hospital Regional de Presidente Prudente (HRPP)",
@@ -114,7 +114,7 @@ export const medicos: Medico[] = [
       "Pós-graduanda em Cardio-Oncologia pela Sociedade Brasileira de Cardiologia (SBC)",
     ],
     especialidades: ["cardiologia"],
-    exames: [],
+    exames: ["bioimpedancia"],
     consultaDe: "saúde cardiovascular",
   },
   {
@@ -145,14 +145,14 @@ export const medicos: Medico[] = [
     rqe: "RQE 105016",
     apresentacao: "Pneumologista",
     foto: "/img/medicos/dra-barbara-goncales-olivo.jpg",
-    resumo: "Atende consultas de pneumologia.",
+    resumo: "Atende consultas de pneumologia e é quem realiza a espirometria na clínica.",
     formacao: [
       "Graduada em Medicina pela Universidade do Oeste Paulista (UNOESTE)",
       "Residência em Clínica Médica pelo Hospital Regional de Presidente Prudente (HRPP)",
       "Residência em Pneumologia pela FAMERP/Hospital de Base de São José do Rio Preto",
     ],
     especialidades: ["pneumologia"],
-    exames: [],
+    exames: ["espirometria"],
     consultaDe: "pneumologia",
   },
   {
@@ -208,7 +208,7 @@ export const especialidades: Especialidade[] = [
       "Avaliação antes de cirurgia",
       "Avaliação para começar ou intensificar exercício",
     ],
-    exames: ["eletrocardiograma", "ecocardiograma", "holter-24h", "mapa-24h", "teste-ergometrico"],
+    exames: ["eletrocardiograma", "ecocardiograma", "holter-24h", "mapa-24h", "teste-ergometrico", "bioimpedancia", "exame-do-sono-biologix"],
   },
   {
     slug: "neurologia",
@@ -241,7 +241,7 @@ export const especialidades: Especialidade[] = [
       "DPOC",
       "Acompanhamento de quem fuma ou já fumou",
     ],
-    exames: ["espirometria"],
+    exames: ["espirometria", "exame-do-sono-biologix"],
   },
   {
     slug: "geriatria",
@@ -534,6 +534,7 @@ export const exames: Exame[] = [
       "Não fume antes do exame.",
       "Sobre os remédios de uso contínuo, siga a orientação do médico que pediu o exame.",
     ],
+    realizadoPor: "arthur-zogheib-pinatto",
     fotos: [{ src: "/img/exames/teste-ergometrico.jpg", alt: "Homem com eletrodos no tórax corre na esteira durante teste ergométrico, acompanhado por profissional de saúde", largura: 900, altura: 506, ilustrativa: true }],
     faq: [
       {
@@ -585,6 +586,7 @@ export const exames: Exame[] = [
       "O resultado depende do seu esforço, e quem aplica o exame orienta cada sopro. Soprar com força pode dar uma tontura leve e passageira.",
     ],
     preparo: [],
+    realizadoPor: "barbara-goncales-olivo",
     fotos: [{ src: "/img/exames/espirometria.jpg", alt: "Mulher com clipe no nariz sopra no espirômetro, orientada por profissional de saúde", largura: 800, altura: 1067, ilustrativa: true }],
     faq: [
       {
@@ -653,6 +655,106 @@ export const exames: Exame[] = [
       },
     ],
   },
+  {
+    slug: "bioimpedancia",
+    rota: "/exames/bioimpedancia-presidente-prudente",
+    nome: "Bioimpedância",
+    nomeCurto: "Bioimpedância",
+    titulo: "Bioimpedância em Presidente Prudente",
+    oQueE:
+      "É o exame que mostra do que o seu peso é feito: quanto é gordura, quanto é músculo e quanto é água.",
+    porQue: [
+      "A balança comum mostra só o peso total, e o IMC é uma conta entre peso e altura. Nenhum dos dois diz se o peso vem de gordura ou de músculo. Duas pessoas com o mesmo peso podem ter composições bem diferentes.",
+      "A bioimpedância faz essa separação. Uma corrente elétrica muito fraca, que você não sente, percorre o corpo. Como o músculo tem mais água e conduz melhor a corrente do que a gordura, o aparelho consegue estimar a quantidade de cada um.",
+      "Para quem está tratando o peso, a pressão, o colesterol ou o diabetes, o exame ajuda a acompanhar o que realmente mudou: se a perda foi de gordura, se a massa muscular foi preservada e como o corpo responde ao tratamento ao longo dos meses.",
+    ],
+    indicacoes: [
+      "Acompanhamento de emagrecimento",
+      "Sobrepeso e obesidade",
+      "Avaliação da massa muscular",
+      "Acompanhamento de mudança de alimentação e de exercício",
+      "Avaliação de risco cardiometabólico",
+      "Comparação da evolução entre consultas",
+    ],
+    comoEFeito: [
+      "Você sobe descalço na balança e segura os pegadores com as duas mãos, com os braços estendidos.",
+      "Fica parado por alguns instantes enquanto o aparelho faz a leitura. Não dói e você não sente a corrente.",
+      "O resultado sai na hora e é explicado junto com a avaliação da médica.",
+    ],
+    preparo: [
+      "Vá ao banheiro antes do exame.",
+      "Evite exercício intenso nas horas anteriores.",
+      "Avise antes do exame se você tem marca-passo ou está grávida.",
+    ],
+    realizadoPor: "mariana-gea-del-trejo",
+    fotos: [{ src: "/img/exames/bioimpedancia.jpg", alt: "Mulher descalça sobre a balança de bioimpedância, segurando os pegadores com os braços estendidos", largura: 846, altura: 850, ilustrativa: true }],
+    faq: [
+      {
+        pergunta: "A bioimpedância dói ou dá choque?",
+        resposta: "Não. A corrente usada é muito fraca e você não sente nada.",
+      },
+      {
+        pergunta: "Qual a diferença entre a bioimpedância e a balança comum?",
+        resposta:
+          "A balança comum mostra só o peso. A bioimpedância estima quanto desse peso é gordura, músculo e água.",
+      },
+      {
+        pergunta: "De quanto em quanto tempo devo repetir?",
+        resposta:
+          "Depende do seu objetivo e do tratamento. A médica define o intervalo para comparar um exame com o outro.",
+      },
+    ],
+  },
+  {
+    slug: "exame-do-sono-biologix",
+    rota: "/exames/exame-do-sono-biologix-presidente-prudente",
+    nome: "Exame do sono (Biologix)",
+    nomeCurto: "Exame do sono Biologix",
+    titulo: "Exame do sono Biologix em Presidente Prudente",
+    oQueE:
+      "É um exame feito em casa, durante o sono, para investigar a apneia. Usa um sensor pequeno no dedo e um aplicativo no celular.",
+    porQue: [
+      "Na apneia do sono, a respiração para ou fica muito fraca várias vezes durante a noite. A cada pausa, o oxigênio do sangue cai e o corpo desperta por instantes para voltar a respirar. A pessoa quase nunca percebe, mas acorda cansada.",
+      "Além do cansaço e do ronco, a apneia sobrecarrega o coração. Ela está ligada à pressão alta difícil de controlar e a arritmias, como a fibrilação atrial. Por isso é um exame que o cardiologista pede com frequência.",
+      "O exame do sono Biologix registra, noite adentro, a oxigenação do sangue e os batimentos do coração, e mostra quantas vezes o oxigênio caiu. Como é feito na sua cama, sem fios pelo corpo, registra uma noite parecida com as suas noites de verdade.",
+      "Ele investiga a apneia do sono. Para outros distúrbios do sono, ou conforme o resultado, o médico pode pedir a polissonografia completa.",
+    ],
+    indicacoes: [
+      "Ronco alto e frequente",
+      "Pausas na respiração percebidas por quem dorme ao lado",
+      "Sono que não descansa e sonolência durante o dia",
+      "Dor de cabeça ao acordar",
+      "Pressão alta difícil de controlar",
+      "Arritmias, como a fibrilação atrial",
+      "Acompanhamento do tratamento da apneia",
+    ],
+    comoEFeito: [
+      "Você recebe o sensor na clínica, com a orientação de uso, e instala o aplicativo Biologix no celular.",
+      "Na hora de dormir, coloca o sensor no dedo, inicia o exame no aplicativo e deixa o celular ao lado da cama. O sensor envia os dados para o celular sem fio.",
+      "Ao acordar, você encerra o exame no aplicativo. Os dados são enviados para análise e o resultado é avaliado pelo médico.",
+    ],
+    preparo: [
+      "Deixe o celular carregando ao lado da cama durante a noite.",
+      "Procure dormir no seu horário habitual.",
+    ],
+    fotos: [],
+    faq: [
+      {
+        pergunta: "Preciso dormir na clínica?",
+        resposta: "Não. O exame é feito em casa, na sua cama.",
+      },
+      {
+        pergunta: "O exame do sono Biologix é igual à polissonografia?",
+        resposta:
+          "Não. Ele é um exame mais simples, voltado para a apneia do sono. A polissonografia completa mede mais parâmetros e pode ser pedida pelo médico em algumas situações.",
+      },
+      {
+        pergunta: "Ronco sempre quer dizer apneia?",
+        resposta:
+          "Nem sempre. Mas ronco alto e frequente, junto com cansaço durante o dia, é um motivo para investigar.",
+      },
+    ],
+  },
 ];
 
 /* ----------------------------------- FAQ ---------------------------------- */
@@ -673,7 +775,7 @@ export const faqGeral: Pergunta[] = [
   {
     pergunta: "Quais exames são feitos na clínica?",
     resposta:
-      "Eletrocardiograma, ecocardiograma, Holter 24h, MAPA 24h, teste ergométrico, espirometria e eletroneuromiografia.",
+      "Eletrocardiograma, ecocardiograma, Holter 24h, MAPA 24h, teste ergométrico, espirometria, eletroneuromiografia, bioimpedância e exame do sono Biologix.",
   },
   {
     pergunta: "A clínica atende urgência?",
@@ -683,6 +785,10 @@ export const faqGeral: Pergunta[] = [
 ];
 
 /* --------------------------------- Buscas --------------------------------- */
+
+/** Nome do exame para usar no meio de uma frase ou em um botao. */
+export const exameEmFrase = (e: Exame) =>
+  /^(MAPA|Holter)/.test(e.nomeCurto) ? e.nomeCurto : e.nomeCurto.charAt(0).toLowerCase() + e.nomeCurto.slice(1);
 
 export const medicoPorSlug = (slug: string) => medicos.find((m) => m.slug === slug);
 export const examePorSlug = (slug: string) => exames.find((e) => e.slug === slug);

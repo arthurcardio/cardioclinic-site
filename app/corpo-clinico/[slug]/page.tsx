@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { clinica, examePorSlug, medicoPorSlug, medicos, nomeCompleto, rotaMedico } from "@/lib/site";
+import { clinica, exameEmFrase, examePorSlug, medicoPorSlug, medicos, nomeCompleto, rotaMedico } from "@/lib/site";
 import { contatoConsultaMedico, contatoExameMedico } from "@/lib/whatsapp";
 import { BotaoWhatsApp } from "@/components/WhatsApp";
 import { Secao, Trilha } from "@/components/Blocos";
@@ -66,7 +66,7 @@ export default async function Pagina({ params }: Props) {
                 <BotaoWhatsApp contato={contatoConsultaMedico(m)}>Agendar consulta</BotaoWhatsApp>
                 {examesDoMedico.map((e) => (
                   <BotaoWhatsApp key={e.slug} contato={contatoExameMedico(m, e)} variante="contorno">
-                    Agendar {e.nomeCurto.toLowerCase()}
+                    Agendar {exameEmFrase(e)}
                   </BotaoWhatsApp>
                 ))}
               </div>
