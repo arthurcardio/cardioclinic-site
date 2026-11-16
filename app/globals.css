@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "@fontsource-variable/montserrat/wght.css";
+@import "@fontsource-variable/playfair-display/wght.css";
+
+@theme {
+  /* marca */
+  --color-marinho: #233a51;
+  --color-marinho-claro: #4a6077;
+  --color-vermelho: #cc524d;
+  --color-vermelho-forte: #b23f3a; /* botoes: contraste AA com texto branco */
+  --color-rosa: #fb968d;
+  --color-rosa-claro: #fdeceA;
+  /* tirados das fotos da clinica: parede, madeira e cadeiras */
+  --color-areia: #f2ece2;
+  --color-areia-forte: #d9c8ac;
+  --color-salvia: #e1e8dc;
+  --color-salvia-forte: #8fa387;
+
+  --font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display Variable", ui-serif, Georgia, serif;
+}
+
+@layer base {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-marinho);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-vermelho);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

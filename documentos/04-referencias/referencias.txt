@@ -1,0 +1,23 @@
+REFERENCIAS DE SITE - Cardio Clinic
+(um link por bloco, com o que copiar a ideia e o que evitar)
+
+https://www.clinicaprudencor.com.br/
+Concorrente direto em Presidente Prudente. Gosto de ter uma pagina para cada especialidade e para cada exame, com "presidente-prudente" no endereco, e uma pagina por medico. Gosto das avaliacoes do Google na home e do mapa no contato. Nao copiar: mostra so CRM, sem RQE, e nao tem FAQ.
+
+https://procardiacocwb.com.br/
+Melhor modelo de conformidade medica. Gosto de cada exame trazer indicacoes, preparo e perguntas e respostas, com botao de WhatsApp em cada bloco. Gosto do CRM e RQE do diretor tecnico visiveis e do aviso no rodape de que o site nao atende urgencia.
+
+https://www.abreucardiologia.com.br/
+O mais completo. Gosto da faixa de numeros na home, do FAQ como pagina propria e das avaliacoes do Google. Nao copiar: os exames ficam todos numa pagina so.
+
+https://ccr.med.br/a-clinica/
+Gosto dos atalhos no topo (WhatsApp e horario de atendimento sempre visiveis) e do botao "abrir no Waze" junto do mapa.
+
+https://www.cuorecardiologia.com.br/
+EXEMPLO DO QUE NAO QUERO: site parado desde 2022, acentos quebrados, visual datado.
+
+O QUE NAO QUERO NO GERAL
+- Visual generico de site feito por IA (gradiente roxo, icones genericos, tudo centralizado).
+- Azul hospitalar frio. A clinica e bege, madeira e verde-claro, com vermelho e azul-marinho da marca.
+- Fotos de banco de imagem de medicos que nao sao da clinica.
+- Promessa de resultado, "o melhor", "referencia", antes e depois, depoimento com diagnostico.
