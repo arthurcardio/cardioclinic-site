@@ -23,14 +23,14 @@ export function Secao({
 export function CartaoMedico({ medico }: { medico: Medico }) {
   return (
     <Link href={rotaMedico(medico)} className="group block">
-      <div className="overflow-hidden rounded-t-[10rem] rounded-b-2xl bg-areia">
+      <div className="overflow-hidden rounded-t-[10rem] rounded-b-2xl border border-areia-forte bg-white">
         <Image
           src={medico.foto}
           alt={`${nomeCompleto(medico)}, ${medico.apresentacao}`}
           width={800}
           height={1000}
           sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
-          className="aspect-[4/5] w-full object-cover mix-blend-multiply"
+          className="aspect-[4/5] w-full object-cover"
         />
       </div>
       <h3 className="mt-4 text-xl text-vermelho-forte group-hover:underline group-hover:underline-offset-4">

@@ -45,14 +45,25 @@ export default async function Pagina({ params }: Props) {
       </section>
 
       <Secao>
-        <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:gap-16">
+        <div className="grid gap-12 md:grid-cols-[1.25fr_1fr] md:gap-16">
           <div>
-            <h2 className="text-3xl">Como é feito</h2>
-            <p className="mt-4 max-w-[58ch] text-lg">{exame.comoEFeito}</p>
+            <h2 className="text-3xl">Por que o médico pede este exame</h2>
+            <div className="mt-5 max-w-[62ch] space-y-4 text-lg">
+              {exame.porQue.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+
+            <h2 className="mt-14 text-3xl">Como é feito</h2>
+            <div className="mt-5 max-w-[62ch] space-y-4 text-lg">
+              {exame.comoEFeito.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
 
             {exame.preparo.length > 0 && (
               <>
-                <h2 className="mt-12 text-3xl">Preparo</h2>
+                <h2 className="mt-14 text-3xl">Preparo</h2>
                 <ul className="mt-5 divide-y divide-areia-forte border-y border-areia-forte">
                   {exame.preparo.map((p) => (
                     <li key={p} className="py-3 text-lg">{p}</li>
@@ -60,9 +71,35 @@ export default async function Pagina({ params }: Props) {
                 </ul>
               </>
             )}
+            <Revisao />
+          </div>
 
+          <aside className="space-y-8 md:sticky md:top-28 md:self-start">
+            {exame.foto && (
+              <figure>
+                <Image
+                  src={exame.foto}
+                  alt={exame.fotoAlt ?? exame.nomeCurto}
+                  width={1080}
+                  height={960}
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="w-full rounded-2xl object-cover"
+                />
+                {exame.fotoIlustrativa && (
+                  <figcaption className="mt-2 text-sm text-marinho-claro">Imagem ilustrativa.</figcaption>
+                )}
+              </figure>
+            )}
+            <div className="rounded-2xl bg-salvia p-6">
+              <h2 className="font-sans text-base font-semibold">Quando costuma ser pedido</h2>
+              <ul className="mt-3 space-y-2">
+                {exame.indicacoes.map((i) => (
+                  <li key={i} className="border-l-2 border-salvia-forte pl-3">{i}</li>
+                ))}
+              </ul>
+            </div>
             {medico && (
-              <p className="mt-10 max-w-[58ch] rounded-2xl bg-salvia p-6">
+              <p className="rounded-2xl border border-areia-forte p-6">
                 Na Cardio Clinic, este exame é realizado por{" "}
                 <Link href={rotaMedico(medico)} className="font-semibold underline underline-offset-4">
                   {nomeCompleto(medico)}
@@ -70,18 +107,10 @@ export default async function Pagina({ params }: Props) {
                 ({medico.crm}, {medico.rqe}).
               </p>
             )}
-            <Revisao />
-          </div>
-          {exame.foto && (
-            <Image
-              src={exame.foto}
-              alt={`Sala onde é feito o ${exame.nomeCurto.toLowerCase()} na Cardio Clinic`}
-              width={1080}
-              height={960}
-              sizes="(min-width: 768px) 40vw, 100vw"
-              className="w-full self-start rounded-2xl object-cover"
-            />
-          )}
+            <BotaoWhatsApp contato={contatoExame(exame)} className="w-full">
+              Agendar pelo WhatsApp
+            </BotaoWhatsApp>
+          </aside>
         </div>
       </Secao>
 

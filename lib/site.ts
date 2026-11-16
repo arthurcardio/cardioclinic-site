@@ -272,11 +272,19 @@ export type Exame = {
   nome: string;
   nomeCurto: string;
   titulo: string;
+  /** Resumo em uma frase: aparece no topo da pagina e na lista de exames. */
   oQueE: string;
-  comoEFeito: string;
+  /** Por que o medico pede o exame. */
+  porQue: string[];
+  /** Situacoes em que o exame costuma ser pedido. */
+  indicacoes: string[];
+  comoEFeito: string[];
   preparo: string[];
   realizadoPor?: string; // slug do medico, quando o exame tem medico fixo
   foto?: string;
+  fotoAlt?: string;
+  /** true quando a foto nao e da clinica: a pagina mostra "Imagem ilustrativa". */
+  fotoIlustrativa?: boolean;
   faq: Pergunta[];
 };
 
@@ -289,13 +297,45 @@ export const exames: Exame[] = [
     titulo: "Eletrocardiograma em Presidente Prudente",
     oQueE:
       "É o registro da atividade elétrica do coração em repouso, feito com eletrodos colados na pele.",
-    comoEFeito: "Você fica deitado por alguns minutos. Não dói.",
-    preparo: ["No dia do exame, evite creme ou óleo no tórax."],
+    porQue: [
+      "Cada batimento do coração começa com um impulso elétrico. O eletrocardiograma desenha esse impulso no papel e mostra se o coração bate no ritmo certo, rápido ou devagar demais.",
+      "Costuma ser o primeiro exame do coração que o médico pede, porque é rápido e dá muita informação: o ritmo, a frequência, sinais de que o músculo está sobrecarregado, de um infarto antigo ou de um bloqueio na passagem do impulso elétrico.",
+      "Um eletrocardiograma normal não descarta todos os problemas. Ele registra só os poucos segundos em que você está deitado. Por isso, conforme a queixa, o médico pode pedir junto um Holter, um ecocardiograma ou um teste ergométrico.",
+    ],
+    indicacoes: [
+      "Palpitação ou sensação de batimento falhando",
+      "Dor ou aperto no peito",
+      "Falta de ar, tontura ou desmaio",
+      "Pressão alta, diabetes ou colesterol alto",
+      "Check-up do coração",
+      "Avaliação antes de cirurgia",
+      "Avaliação antes de começar atividade física",
+      "Acompanhamento de quem usa remédios que podem alterar o ritmo do coração",
+    ],
+    comoEFeito: [
+      "Você deita na maca com o tórax descoberto. São colados eletrodos no peito, nos punhos e nos tornozelos, ligados ao aparelho por fios.",
+      "Durante o registro, basta ficar parado e respirar normalmente. O aparelho só capta a eletricidade do coração: ele não dá choque e você não sente nada.",
+      "O registro leva poucos minutos. Depois você pode voltar à rotina normalmente.",
+    ],
+    preparo: [
+      "No dia do exame, evite creme ou óleo no tórax: eles atrapalham a fixação dos eletrodos.",
+      "Venha com roupa fácil de abrir na frente.",
+    ],
     foto: "/img/clinica/sala-ecg.jpg",
+    fotoAlt: "Sala onde é feito o eletrocardiograma na Cardio Clinic",
     faq: [
       {
         pergunta: "O eletrocardiograma dói?",
-        resposta: "Não. São eletrodos colados na pele por alguns minutos.",
+        resposta: "Não. São eletrodos colados na pele por alguns minutos. O aparelho apenas registra.",
+      },
+      {
+        pergunta: "Eletrocardiograma normal quer dizer que meu coração está bem?",
+        resposta:
+          "É um bom sinal, mas ele mostra só o momento do exame. Se a queixa continuar, o médico pode pedir outros exames para completar a avaliação.",
+      },
+      {
+        pergunta: "Preciso estar em jejum?",
+        resposta: "Não. O eletrocardiograma não exige jejum.",
       },
     ],
   },
@@ -307,14 +347,41 @@ export const exames: Exame[] = [
     titulo: "Ecocardiograma em Presidente Prudente",
     oQueE:
       "É o ultrassom do coração. Mostra o tamanho das cavidades, a força do músculo e o funcionamento das válvulas.",
-    comoEFeito:
-      "Você fica deitado enquanto a médica passa um transdutor com gel sobre o tórax. Não dói e não usa radiação.",
+    porQue: [
+      "O eletrocardiograma mostra a parte elétrica do coração. O ecocardiograma mostra a parte mecânica: o coração batendo, em imagem e em tempo real.",
+      "Com ele o médico mede o tamanho das cavidades, a espessura das paredes e a força com que o músculo bombeia o sangue. Também vê as válvulas abrindo e fechando e, com o Doppler, acompanha o caminho do sangue lá dentro, para saber se alguma válvula está apertada ou deixando o sangue voltar.",
+      "É o exame que ajuda a entender a causa de um sopro, de uma falta de ar ou de um inchaço nas pernas, e a acompanhar ao longo dos anos quem já tem uma doença do coração.",
+    ],
+    indicacoes: [
+      "Sopro no coração",
+      "Falta de ar ou cansaço sem explicação",
+      "Inchaço nas pernas",
+      "Pressão alta há muitos anos",
+      "Depois de um infarto",
+      "Arritmias",
+      "Acompanhamento de doença das válvulas ou de insuficiência cardíaca",
+      "Antes e durante tratamentos que podem afetar o coração, como alguns tipos de quimioterapia",
+    ],
+    comoEFeito: [
+      "Você deita na maca, em geral virado para o lado esquerdo, com o tórax descoberto.",
+      "A médica passa um gel e desliza o transdutor sobre o peito, em algumas posições. As imagens aparecem na tela na hora. Em certos momentos dá para ouvir o som do fluxo do sangue: é o Doppler funcionando.",
+      "O exame não dói e não usa radiação. No fim, é só limpar o gel e voltar à rotina.",
+    ],
     preparo: [],
     realizadoPor: "caroline-molina",
     faq: [
       {
         pergunta: "O ecocardiograma tem radiação?",
-        resposta: "Não. É um exame de ultrassom.",
+        resposta: "Não. É um exame de ultrassom, o mesmo princípio usado na gravidez.",
+      },
+      {
+        pergunta: "Qual a diferença entre eletrocardiograma e ecocardiograma?",
+        resposta:
+          "O eletrocardiograma registra a atividade elétrica do coração. O ecocardiograma mostra a imagem do coração batendo: músculo, cavidades e válvulas. Um completa o outro.",
+      },
+      {
+        pergunta: "O ecocardiograma dói?",
+        resposta: "Não. Você sente apenas a pressão leve do transdutor sobre o peito.",
       },
     ],
   },
@@ -326,11 +393,29 @@ export const exames: Exame[] = [
     titulo: "Holter 24h em Presidente Prudente",
     oQueE:
       "É a gravação contínua do ritmo do coração durante 24 horas, feita por um aparelho pequeno preso à cintura.",
-    comoEFeito:
-      "Você coloca o aparelho na clínica, leva a vida normal e volta no dia seguinte para retirar. Durante o dia, anota em um diário o que sentiu e a que horas.",
+    porQue: [
+      "Muitas alterações do ritmo do coração vêm e vão. A palpitação aparece em casa, à noite ou no trabalho, e some antes da consulta. O eletrocardiograma comum, que dura poucos segundos, pode sair normal.",
+      "O Holter resolve isso gravando todos os batimentos de um dia inteiro, inclusive durante o sono. Assim o médico consegue ver se houve arritmia, quantas vezes, por quanto tempo e em que horário.",
+      "O diário que você preenche é parte do exame. Ao comparar a hora do sintoma com o traçado daquele momento, o médico descobre se a palpitação ou a tontura veio mesmo do coração.",
+    ],
+    indicacoes: [
+      "Palpitação ou coração disparado",
+      "Sensação de batimento falhando",
+      "Tontura ou desmaio",
+      "Batimentos muito lentos ou muito rápidos",
+      "Acompanhamento de arritmia já conhecida",
+      "Avaliação do efeito de um remédio para o ritmo",
+      "Investigação depois de um AVC",
+    ],
+    comoEFeito: [
+      "Na clínica, são colados eletrodos no seu tórax, ligados a um gravador pequeno que fica preso à cintura ou a tiracolo.",
+      "Você vai embora e leva a vida normal: trabalha, caminha, come e dorme com o aparelho. Durante o dia, anota no diário o que sentiu e a que horas.",
+      "No dia seguinte, você volta para retirar o aparelho. A gravação é analisada e vira o laudo.",
+    ],
     preparo: [
       "Tome banho antes de vir: o aparelho não pode molhar.",
-      "Não passe creme no tórax.",
+      "Não passe creme ou óleo no tórax.",
+      "Venha com uma camisa larga, que ajuda a acomodar os fios.",
     ],
     faq: [
       {
@@ -339,7 +424,17 @@ export const exames: Exame[] = [
       },
       {
         pergunta: "Posso trabalhar normalmente com o Holter?",
-        resposta: "Sim. A ideia é manter a rotina do dia a dia.",
+        resposta:
+          "Sim. A ideia é justamente registrar o coração na sua rotina de verdade, então mantenha o dia como ele costuma ser.",
+      },
+      {
+        pergunta: "E se eu não sentir nada durante o exame?",
+        resposta:
+          "O exame continua valendo. O Holter registra todos os batimentos, com ou sem sintoma, e pode mostrar alterações que você nem percebe.",
+      },
+      {
+        pergunta: "Posso dormir com o aparelho?",
+        resposta: "Sim. O registro durante o sono é uma parte importante do exame.",
       },
     ],
   },
@@ -351,8 +446,24 @@ export const exames: Exame[] = [
     titulo: "MAPA 24h em Presidente Prudente",
     oQueE:
       "É a medida automática da pressão arterial ao longo de 24 horas, inclusive durante o sono.",
-    comoEFeito:
-      "Uma braçadeira no braço infla de tempos em tempos. Você mantém a rotina e devolve o aparelho no dia seguinte.",
+    porQue: [
+      "A pressão muda o dia inteiro. Uma ou duas medidas no consultório mostram só aquele instante, e nem sempre representam o que acontece no resto do dia.",
+      "Há quem tenha a pressão alta só no consultório, por ansiedade: é a chamada hipertensão do avental branco. E há o contrário, a pressão normal na consulta e alta em casa e no trabalho, chamada de hipertensão mascarada. O MAPA separa uma situação da outra.",
+      "O exame também mostra como a pressão se comporta durante o sono, quando ela normalmente cai, e se o remédio está controlando a pressão nas 24 horas, e não só logo depois de tomado.",
+    ],
+    indicacoes: [
+      "Confirmar o diagnóstico de pressão alta",
+      "Pressão alta só no consultório",
+      "Pressão normal no consultório, mas alta em casa",
+      "Verificar se o tratamento controla a pressão o dia todo",
+      "Pressão que varia muito",
+      "Tontura ou suspeita de pressão baixa",
+    ],
+    comoEFeito: [
+      "Na clínica, uma braçadeira é colocada no seu braço e ligada a um aparelho pequeno, preso à cintura.",
+      "A braçadeira infla sozinha de tempos em tempos, durante o dia e a noite. Quando sentir que ela começou a apertar, pare o que estiver fazendo e deixe o braço parado e relaxado até terminar.",
+      "Você mantém a rotina e anota no diário os horários de dormir, acordar, comer, tomar remédios e qualquer sintoma. No dia seguinte, devolve o aparelho.",
+    ],
     preparo: [
       "Venha com camisa de manga larga.",
       "Tome banho antes de vir: o aparelho não pode molhar.",
@@ -362,6 +473,16 @@ export const exames: Exame[] = [
       {
         pergunta: "Posso tomar banho com o MAPA?",
         resposta: "Não. O aparelho não pode molhar; tome banho antes de colocar.",
+      },
+      {
+        pergunta: "O MAPA atrapalha o sono?",
+        resposta:
+          "A braçadeira também infla durante a noite, e algumas pessoas acordam nas primeiras medidas. É esperado, e o registro do sono é uma parte importante do exame.",
+      },
+      {
+        pergunta: "Qual a diferença entre MAPA e Holter?",
+        resposta:
+          "O MAPA mede a pressão arterial ao longo de 24 horas. O Holter grava o ritmo do coração no mesmo período. São exames diferentes, e o médico pode pedir os dois.",
       },
       {
         pergunta: "Posso trabalhar normalmente com o MAPA?",
@@ -377,18 +498,50 @@ export const exames: Exame[] = [
     titulo: "Teste ergométrico em Presidente Prudente",
     oQueE:
       "É o eletrocardiograma feito durante o esforço na esteira, com medida da pressão.",
-    comoEFeito:
-      "Você caminha na esteira, com aumento gradual de velocidade e inclinação, acompanhado por médico.",
+    porQue: [
+      "Em repouso, o coração trabalha com folga. Algumas alterações só aparecem quando ele é exigido: no esforço, o músculo precisa de mais sangue, e uma artéria coronária estreitada pode não dar conta.",
+      "No teste ergométrico, o médico acompanha o eletrocardiograma, a pressão, a frequência do coração e o que você sente enquanto o esforço aumenta aos poucos. Por isso ele também é chamado de teste de esforço.",
+      "Além de investigar dor no peito, o exame mostra como a pressão reage ao exercício, se surgem arritmias no esforço e qual é a sua capacidade física. É uma informação útil para liberar e orientar a prática de atividade física.",
+    ],
+    indicacoes: [
+      "Dor ou aperto no peito ao fazer esforço",
+      "Avaliação antes de começar ou intensificar atividade física",
+      "Palpitação que aparece no exercício",
+      "Avaliar o comportamento da pressão no esforço",
+      "Acompanhamento depois de infarto, angioplastia ou cirurgia do coração",
+      "Medir a capacidade física",
+    ],
+    comoEFeito: [
+      "São colados eletrodos no seu tórax e uma braçadeira de pressão no braço. O registro começa ainda em repouso.",
+      "A esteira começa devagar. Em etapas, a velocidade e a inclinação aumentam. O médico fica ao seu lado o tempo todo, acompanhando o traçado e medindo a pressão.",
+      "O esforço termina quando você atinge o objetivo do exame, quando se cansa ou quando o médico decide parar. Depois vêm alguns minutos de recuperação, ainda com o monitoramento ligado.",
+      "Se sentir dor no peito, tontura ou falta de ar forte durante o teste, avise na hora.",
+    ],
     preparo: [
       "Venha com roupa leve e tênis.",
       "Faça uma refeição leve antes: nem em jejum, nem de estômago cheio.",
       "Não fume antes do exame.",
+      "Sobre os remédios de uso contínuo, siga a orientação do médico que pediu o exame.",
     ],
     faq: [
       {
         pergunta: "Preciso parar meus remédios para o teste ergométrico?",
         resposta:
           "Só se o médico que pediu o exame orientar. Não suspenda por conta própria.",
+      },
+      {
+        pergunta: "Preciso correr na esteira?",
+        resposta:
+          "Nem sempre. O esforço aumenta aos poucos e é ajustado à sua condição. Muitas pessoas fazem o exame inteiro caminhando.",
+      },
+      {
+        pergunta: "O teste ergométrico é seguro?",
+        resposta:
+          "É um exame feito com acompanhamento médico do começo ao fim, com o eletrocardiograma e a pressão monitorados. Se surgir qualquer alteração ou sintoma, o teste é interrompido.",
+      },
+      {
+        pergunta: "Posso fazer o teste em jejum?",
+        resposta: "Não é recomendado. Faça uma refeição leve antes.",
       },
     ],
   },
@@ -400,10 +553,43 @@ export const exames: Exame[] = [
     titulo: "Espirometria em Presidente Prudente",
     oQueE:
       "É o exame do sopro. Mede quanto ar entra e sai dos pulmões e com que velocidade. A clínica faz com e sem broncodilatador.",
-    comoEFeito:
-      "Você sopra com força em um bocal, algumas vezes. Na versão com broncodilatador, repete os sopros depois de usar a bombinha.",
+    porQue: [
+      "Falta de ar, tosse e chiado são queixas que podem vir do pulmão, do coração ou de outras causas. A espirometria mostra, em números, como o pulmão está funcionando.",
+      "O exame mede o volume de ar que você consegue soprar e a velocidade com que ele sai. Quando os brônquios estão estreitados, como na asma e na DPOC, o ar sai mais devagar, e isso aparece no resultado.",
+      "Na versão com broncodilatador, o sopro é repetido depois de usar a bombinha. Se o resultado melhora, é sinal de que o estreitamento dos brônquios é reversível, uma informação que ajuda o médico a definir o diagnóstico e o tratamento.",
+    ],
+    indicacoes: [
+      "Tosse que não passa",
+      "Falta de ar",
+      "Chiado no peito",
+      "Diagnóstico e acompanhamento de asma",
+      "Diagnóstico e acompanhamento de DPOC",
+      "Avaliação de quem fuma ou já fumou",
+      "Avaliação antes de algumas cirurgias",
+    ],
+    comoEFeito: [
+      "Você fica sentado, com um clipe no nariz para o ar sair só pela boca, e segura o bocal entre os lábios.",
+      "Na hora indicada, enche o peito ao máximo e sopra com toda a força e o mais rápido que conseguir, até esvaziar os pulmões. O sopro é repetido algumas vezes, porque o exame precisa de medidas parecidas entre si para ser confiável.",
+      "O resultado depende do seu esforço, e quem aplica o exame orienta cada sopro. Soprar com força pode dar uma tontura leve e passageira.",
+    ],
     preparo: [],
-    faq: [],
+    faq: [
+      {
+        pergunta: "A espirometria dói?",
+        resposta:
+          "Não. Ela exige esforço para soprar, e isso pode cansar um pouco ou dar uma tontura leve e passageira.",
+      },
+      {
+        pergunta: "Para que serve o broncodilatador no exame?",
+        resposta:
+          "Ele abre os brônquios. Comparar o sopro antes e depois mostra se o estreitamento das vias aéreas melhora com o remédio.",
+      },
+      {
+        pergunta: "Por que preciso soprar várias vezes?",
+        resposta:
+          "Porque o exame só é considerado confiável quando os sopros dão resultados parecidos entre si.",
+      },
+    ],
   },
   {
     slug: "eletroneuromiografia",
@@ -413,15 +599,43 @@ export const exames: Exame[] = [
     titulo: "Eletroneuromiografia em Presidente Prudente",
     oQueE:
       "É o exame que avalia nervos e músculos. Ajuda a investigar formigamento, dormência, perda de força e dor.",
-    comoEFeito:
-      "Tem duas partes: pequenos estímulos elétricos sobre a pele e, depois, uma agulha fina no músculo.",
-    preparo: [],
+    porQue: [
+      "Os nervos levam os comandos do cérebro e da medula até os músculos e trazem de volta as sensações. Quando um nervo é comprimido ou adoece, podem aparecer formigamento, dormência, dor ou perda de força.",
+      "A eletroneuromiografia mede como o sinal elétrico caminha pelos nervos e como os músculos respondem. Com isso, ajuda a mostrar onde está o problema: no nervo, na raiz do nervo junto à coluna ou no próprio músculo. Também indica a intensidade da lesão.",
+      "É um exame que complementa a consulta e os exames de imagem. A ressonância mostra a anatomia; a eletroneuromiografia mostra se o nervo está funcionando.",
+    ],
+    indicacoes: [
+      "Formigamento ou dormência nas mãos e nos pés",
+      "Suspeita de síndrome do túnel do carpo",
+      "Dor que desce pelo braço ou pela perna, com suspeita de nervo comprimido na coluna",
+      "Suspeita de neuropatia, como a do diabetes",
+      "Perda de força ou fraqueza muscular",
+      "Investigação de doenças dos nervos e dos músculos",
+    ],
+    comoEFeito: [
+      "O exame tem duas partes. Na primeira, eletrodos são colados na pele e o nervo recebe estímulos elétricos curtos, parecidos com pequenos choques rápidos. O aparelho mede a velocidade e a força do sinal.",
+      "Na segunda parte, uma agulha fina e descartável é colocada em alguns músculos para registrar a atividade deles em repouso e durante a contração. Nada é injetado.",
+      "Os nervos e músculos examinados dependem da sua queixa. O exame pode causar desconforto, que passa logo depois.",
+    ],
+    preparo: [
+      "Avise a médica antes do exame se você usa anticoagulante ou tem marca-passo.",
+    ],
     realizadoPor: "izadora-lopes-lima",
     faq: [
       {
         pergunta: "A eletroneuromiografia dói?",
         resposta:
-          "Pode causar um desconforto passageiro, que varia de pessoa para pessoa.",
+          "Pode causar um desconforto passageiro, que varia de pessoa para pessoa. Os estímulos são rápidos e a agulha é fina.",
+      },
+      {
+        pergunta: "Qual a diferença entre eletroneuromiografia e ressonância?",
+        resposta:
+          "A ressonância mostra a imagem da coluna, dos nervos e dos músculos. A eletroneuromiografia mostra o funcionamento deles. Muitas vezes os dois exames se completam.",
+      },
+      {
+        pergunta: "Posso voltar às atividades depois do exame?",
+        resposta:
+          "Em geral, sim. Pode ficar uma sensibilidade leve nos pontos examinados, que passa em pouco tempo.",
       },
     ],
   },
