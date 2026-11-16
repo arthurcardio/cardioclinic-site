@@ -5,6 +5,7 @@ import { contatoGeral } from "@/lib/whatsapp";
 import { BotaoWhatsApp } from "./WhatsApp";
 
 const menu = [
+  { href: "/sobre", rotulo: "A clínica" },
   { href: "/#especialidades", rotulo: "Especialidades" },
   { href: "/exames", rotulo: "Exames" },
   { href: "/corpo-clinico", rotulo: "Corpo clínico" },

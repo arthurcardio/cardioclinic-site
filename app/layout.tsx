@@ -4,6 +4,7 @@ import { clinica } from "@/lib/site";
 import { Cabecalho } from "@/components/Cabecalho";
 import { Rodape } from "@/components/Rodape";
 import { WhatsAppFlutuante } from "@/components/WhatsAppFlutuante";
+import { Medicao } from "@/components/Medicao";
 
 export const metadata: Metadata = {
   metadataBase: new URL(clinica.url),
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="conteudo">{children}</main>
         <Rodape />
         <WhatsAppFlutuante />
+        <Medicao />
       </body>
     </html>
   );

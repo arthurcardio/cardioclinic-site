@@ -9,7 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...exames.map((e) => e.rota),
     "/corpo-clinico",
     ...medicos.map(rotaMedico),
+    "/sobre",
     "/contato",
+    "/politica-de-privacidade",
   ];
   return rotas.map((r) => ({ url: clinica.url + r, lastModified: new Date() }));
 }

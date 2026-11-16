@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { clinica, enderecoLinha, especialidades, exames } from "@/lib/site";
 import { Marca } from "./Cabecalho";
+import { PreferenciasDeCookies } from "./Medicao";
 
 export function Rodape() {
   const d = clinica.diretorTecnico;
@@ -33,6 +34,7 @@ export function Rodape() {
                 <Link href={e.rota} className="hover:text-white">{e.nome}</Link>
               </li>
             ))}
+            <li><Link href="/sobre" className="hover:text-white">A clínica</Link></li>
             <li><Link href="/corpo-clinico" className="hover:text-white">Corpo clínico</Link></li>
             <li><Link href="/contato" className="hover:text-white">Contato</Link></li>
           </ul>
@@ -58,6 +60,12 @@ export function Rodape() {
           </p>
           <p>
             Este site não realiza atendimento de urgência. Em caso de emergência, ligue 192.
+          </p>
+          <p className="flex flex-wrap gap-x-5 gap-y-1 pt-2">
+            <Link href="/politica-de-privacidade" className="underline underline-offset-4 hover:text-white">
+              Política de privacidade
+            </Link>
+            <PreferenciasDeCookies />
           </p>
         </div>
       </div>

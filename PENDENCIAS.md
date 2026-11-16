@@ -1,5 +1,18 @@
 # Pendências do site
 
+## Lançamento (situação em 16/11/2026)
+Feito no código: página "sobre", política de privacidade, banner de cookies, medição (GA4, Google Ads, pixel da Meta) e cabeçalhos de segurança.
+
+Falta, nesta ordem:
+- [ ] Criar a propriedade do Google Analytics 4 e cadastrar `NEXT_PUBLIC_GA_ID` na Vercel.
+- [ ] Google Ads: criar a conversão "Clique no WhatsApp" e cadastrar `NEXT_PUBLIC_ADS_ID` e `NEXT_PUBLIC_ADS_CONVERSAO`.
+- [ ] Meta: cadastrar `NEXT_PUBLIC_META_PIXEL_ID`.
+- [ ] Revisão médica final dos textos.
+- [ ] Apontar o domínio no Registro.br para a Vercel (principal com www).
+- [ ] Cadastrar `SITE_LIBERADO=1` na Vercel e publicar de novo.
+- [ ] Search Console: verificar o domínio, enviar o sitemap e pedir indexação.
+- [ ] Testar no securityheaders.com e no PageSpeed (celular e computador).
+
 Atualizado em 16/11/2026.
 
 ## Antes de construir (resolver com o Dr. Arthur)
