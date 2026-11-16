@@ -87,7 +87,7 @@ export default async function Pagina({ params }: Props) {
                   className="w-full rounded-2xl"
                 />
                 <figcaption className="mt-2 text-sm text-marinho-claro">
-                  {f.ilustrativa ? "Imagem ilustrativa." : "Foto da Cardio Clinic."}
+                  {f.legenda ?? (f.ilustrativa ? "Imagem ilustrativa." : "Foto da Cardio Clinic.")}
                 </figcaption>
               </figure>
             ))}

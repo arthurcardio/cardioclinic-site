@@ -273,6 +273,8 @@ export type Foto = {
   altura: number;
   /** true quando a foto nao e da clinica: a pagina mostra "Imagem ilustrativa". */
   ilustrativa?: boolean;
+  /** Legenda propria; quando ausente, usa o texto padrao. */
+  legenda?: string;
 };
 
 export type Exame = {
@@ -737,7 +739,7 @@ export const exames: Exame[] = [
       "Deixe o celular carregando ao lado da cama durante a noite.",
       "Procure dormir no seu horário habitual.",
     ],
-    fotos: [],
+    fotos: [{ src: "/img/exames/exame-do-sono-biologix.jpg", alt: "Mulher dormindo com o sensor do exame do sono Biologix no dedo e o celular com o aplicativo ao lado", largura: 1280, altura: 500, ilustrativa: true, legenda: "Imagem de divulgação da Biologix." }],
     faq: [
       {
         pergunta: "Preciso dormir na clínica?",
