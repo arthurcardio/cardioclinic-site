@@ -27,7 +27,7 @@ const estilos = {
 export function BotaoWhatsApp({ contato, children, variante = "cheio", className = "" }: Props) {
   return (
     <a
-      href={linkWhatsApp(contato.mensagem)}
+      href={linkWhatsApp(contato.mensagem, contato.whatsapp)}
       target="_blank"
       rel="noopener"
       data-whatsapp

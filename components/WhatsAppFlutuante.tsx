@@ -10,7 +10,7 @@ export function WhatsAppFlutuante() {
   const contato = contatoDaRota(pathname);
   return (
     <a
-      href={linkWhatsApp(contato.mensagem)}
+      href={linkWhatsApp(contato.mensagem, contato.whatsapp)}
       target="_blank"
       rel="noopener"
       data-whatsapp

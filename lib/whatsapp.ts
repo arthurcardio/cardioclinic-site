@@ -17,10 +17,21 @@ export type Contato = {
   tipo: "geral" | "especialidade" | "medico" | "exame" | "contato";
   item: string;
   acao: "consulta" | "exame" | "duvida";
+  /** Numero de destino. Vazio = numero da clinica. */
+  whatsapp?: string;
 };
 
-export const linkWhatsApp = (mensagem: string) =>
-  `https://wa.me/${clinica.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+export const linkWhatsApp = (mensagem: string, numero?: string) =>
+  `https://wa.me/${numero ?? clinica.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+
+/** Se a especialidade tem uma unica medica com WhatsApp proprio, o botao vai para ela. */
+const numeroDaEspecialidade = (e: Especialidade) => {
+  const doutoras = medicos.filter((m) => m.especialidades.includes(e.slug));
+  return doutoras.length === 1 ? doutoras[0].whatsapp : undefined;
+};
+
+const numeroDoExame = (e: Exame) =>
+  e.realizadoPor ? medicos.find((m) => m.slug === e.realizadoPor)?.whatsapp : undefined;
 
 export const contatoGeral: Contato = {
   mensagem: "Olá! Vim pelo site da Cardio Clinic e gostaria de agendar um atendimento.",
@@ -41,6 +52,7 @@ export const contatoEspecialidade = (e: Especialidade): Contato => ({
   tipo: "especialidade",
   item: e.slug,
   acao: "consulta",
+  whatsapp: numeroDaEspecialidade(e),
 });
 
 export const contatoExame = (e: Exame): Contato => ({
@@ -48,6 +60,7 @@ export const contatoExame = (e: Exame): Contato => ({
   tipo: "exame",
   item: e.slug,
   acao: "exame",
+  whatsapp: numeroDoExame(e),
 });
 
 export const contatoConsultaMedico = (m: Medico): Contato => ({
@@ -55,6 +68,7 @@ export const contatoConsultaMedico = (m: Medico): Contato => ({
   tipo: "medico",
   item: m.slug,
   acao: "consulta",
+  whatsapp: m.whatsapp,
 });
 
 export const contatoExameMedico = (m: Medico, e: Exame): Contato => ({
@@ -62,6 +76,7 @@ export const contatoExameMedico = (m: Medico, e: Exame): Contato => ({
   tipo: "medico",
   item: `${m.slug}:${e.slug}`,
   acao: "exame",
+  whatsapp: m.whatsapp,
 });
 
 /** Mensagem do botao flutuante conforme a pagina aberta. */

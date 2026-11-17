@@ -48,6 +48,8 @@ export type Medico = {
   exames: string[]; // slugs
   /** Rotulo usado na mensagem de consulta do WhatsApp. */
   consultaDe: string;
+  /** WhatsApp proprio da medica (so digitos, com 55). Sem ele, vale o numero da clinica. */
+  whatsapp?: string;
 };
 
 export const medicos: Medico[] = [
@@ -98,6 +100,7 @@ export const medicos: Medico[] = [
   },
   {
     slug: "mariana-gea-del-trejo",
+    whatsapp: "5518996834477",
     nome: "Mariana Gea Del Trejo",
     tratamento: "Dra.",
     crm: "CRM-SP 155.786",
@@ -119,6 +122,7 @@ export const medicos: Medico[] = [
   },
   {
     slug: "izadora-lopes-lima",
+    whatsapp: "5518996883814",
     nome: "Izadora V. B. Lopes Lima",
     tratamento: "Dra.",
     crm: "CRM-SP 209.746",
@@ -139,6 +143,7 @@ export const medicos: Medico[] = [
   },
   {
     slug: "barbara-goncales-olivo",
+    whatsapp: "5518996473587",
     nome: "Bárbara Gonçales Olivo",
     tratamento: "Dra.",
     crm: "CRM-SP 182.984",
@@ -157,6 +162,7 @@ export const medicos: Medico[] = [
   },
   {
     slug: "bruna-beloni-fantini",
+    whatsapp: "5518998010612",
     nome: "Bruna Beloni Fantini",
     tratamento: "Dra.",
     crm: "CRM-SP 217.585",
