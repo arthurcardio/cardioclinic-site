@@ -32,6 +32,16 @@ Atualizado em 16/11/2026.
 - [ ] Política de privacidade revisada.
 - [ ] Registro da clínica no CREMESP, se houver, para o rodapé.
 
+## Ideia em espera: WhatsApp por médica (decidido em 16/11/2026: ainda NÃO implementar)
+Cada médica tem a sua secretária. Proposta de divisão, para quando o Dr. Arthur decidir:
+- Página da médica e exames com médica fixa (eco, ENMG, espirometria, bioimpedância): número da secretária dela.
+- Home, contato, botão flutuante geral, páginas de especialidade e exames da clínica (ECG, Holter, MAPA, Biologix): número da clínica.
+- [ ] Confirmar a divisão acima.
+- [ ] Receber o número de cada secretária (quem não tiver segue no da clínica).
+- [ ] Definir para onde vão o teste ergométrico e as consultas do Dr. Arthur.
+- [ ] Combinar com as secretárias: WhatsApp Business, prazo de resposta e mensagem automática fora do horário.
+Como fazer: campo `whatsapp` opcional em cada médico em `lib/site.ts` e uso dele em `lib/whatsapp.ts`. A medição no Analytics não muda.
+
 ## Depois do lançamento (o site sai sem estes itens)
 - [ ] Foto do aparelho de ecocardiograma.
 - [ ] Foto da esteira do teste ergométrico.
