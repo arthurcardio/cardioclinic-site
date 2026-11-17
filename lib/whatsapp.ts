@@ -56,7 +56,9 @@ export const contatoEspecialidade = (e: Especialidade): Contato => ({
 });
 
 export const contatoExame = (e: Exame): Contato => ({
-  mensagem: `Olá! Vim pelo site e gostaria de agendar um exame: ${e.nomeCurto}.`,
+  mensagem: /^Exame/.test(e.nomeCurto)
+    ? `Olá! Vim pelo site e gostaria de agendar o ${exameEmFrase(e)}.`
+    : `Olá! Vim pelo site e gostaria de agendar um exame: ${e.nomeCurto}.`,
   tipo: "exame",
   item: e.slug,
   acao: "exame",
@@ -72,7 +74,9 @@ export const contatoConsultaMedico = (m: Medico): Contato => ({
 });
 
 export const contatoExameMedico = (m: Medico, e: Exame): Contato => ({
-  mensagem: `Olá! Vim pelo site e gostaria de agendar um exame (${exameEmFrase(e)}) com ${artigo(m)} ${nomeCompleto(m)}.`,
+  mensagem: /^Exame/.test(e.nomeCurto)
+    ? `Olá! Vim pelo site e gostaria de agendar o ${exameEmFrase(e)} com ${artigo(m)} ${nomeCompleto(m)}.`
+    : `Olá! Vim pelo site e gostaria de agendar um exame (${exameEmFrase(e)}) com ${artigo(m)} ${nomeCompleto(m)}.`,
   tipo: "medico",
   item: `${m.slug}:${e.slug}`,
   acao: "exame",

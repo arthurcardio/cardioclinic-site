@@ -666,9 +666,9 @@ export const exames: Exame[] = [
   {
     slug: "bioimpedancia",
     rota: "/exames/bioimpedancia-presidente-prudente",
-    nome: "Bioimpedância",
-    nomeCurto: "Bioimpedância",
-    titulo: "Bioimpedância em Presidente Prudente",
+    nome: "Exame de Avaliação de Composição Corporal por Bioimpedância com Laudo Médico",
+    nomeCurto: "Exame de Avaliação de Composição Corporal por Bioimpedância com Laudo Médico",
+    titulo: "Exame de Avaliação de Composição Corporal por Bioimpedância com Laudo Médico",
     oQueE:
       "É o exame que mostra do que o seu peso é feito: quanto é gordura, quanto é músculo e quanto é água.",
     porQue: [
