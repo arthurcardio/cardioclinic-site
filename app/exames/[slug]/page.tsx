@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { exameEmFrase, exames, medicoPorSlug, nomeCompleto, rotaMedico } from "@/lib/site";
+import { clinica, exameEmFrase, exames, medicoPorSlug, nomeCompleto, rotaMedico } from "@/lib/site";
 import { contatoExame } from "@/lib/whatsapp";
 import { BotaoWhatsApp } from "@/components/WhatsApp";
 import { Perguntas, Revisao, SchemaFaq, Secao, Trilha } from "@/components/Blocos";
@@ -18,10 +18,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const exame = achar((await params).slug);
   if (!exame) return {};
+  const foto = exame.fotos[0];
   return {
-    title: exame.titulo,
-    description: `${exame.oQueE} Veja como é feito e agende pelo WhatsApp na Cardio Clinic.`,
+    title: exame.tituloSeo ?? exame.titulo,
+    description:
+      exame.descricaoSeo ?? `${exame.oQueE} Veja como é feito e agende pelo WhatsApp na Cardio Clinic.`,
     alternates: { canonical: exame.rota },
+    // O openGraph da pagina substitui o do layout inteiro, entao repetimos os campos fixos.
+    openGraph: {
+      type: "website",
+      locale: "pt_BR",
+      siteName: clinica.nome,
+      images: foto ? [{ url: foto.src, width: foto.largura, height: foto.altura, alt: foto.alt }] : undefined,
+    },
   };
 }
 

@@ -41,6 +41,12 @@ export type Medico = {
   rqe: string;
   /** Titulo exibido ao lado do nome. Segue documentos/02-conteudo/corpo-clinico.md. */
   apresentacao: string;
+  /** Titulo da aba/Google, sem a marca. Padrao: nome + apresentacao. A apresentacao exibida na pagina nao muda. */
+  tituloSeo?: string;
+  /** true quando tituloSeo ja e o titulo final (nao acrescenta a marca). */
+  tituloSeoSemMarca?: boolean;
+  /** Meta description (ate 160 caracteres). Padrao: nome, CRM, RQE e resumo. */
+  descricaoSeo?: string;
   foto: string;
   resumo: string;
   formacao: string[];
@@ -60,6 +66,7 @@ export const medicos: Medico[] = [
     crm: "CRM-SP 169.044",
     rqe: "RQE 95302",
     apresentacao: "Cardiologista",
+    descricaoSeo: "Dr. Arthur A. Zogheib Pinatto (CRM-SP 169.044, RQE 95302), cardiologista e diretor técnico da Cardio Clinic, em Presidente Prudente. Faz o teste ergométrico.",
     foto: "/img/medicos/dr-arthur-zogheib-pinatto.jpg",
     resumo:
       "Diretor técnico da clínica. Atende consultas de cardiologia, faz a avaliação do coração de quem pratica ou quer começar a praticar esporte e realiza o teste ergométrico.",
@@ -84,6 +91,9 @@ export const medicos: Medico[] = [
     crm: "CRM-SP 173.851",
     rqe: "RQE 98545",
     apresentacao: "Cardiologista | Ecocardiografia",
+    tituloSeo: "Dra. Caroline Molina, Cardiologista e Ecocardiografia",
+    tituloSeoSemMarca: true,
+    descricaoSeo: "Dra. Caroline Molina (CRM-SP 173.851, RQE 98545), cardiologista na Cardio Clinic, em Presidente Prudente. Realiza o ecocardiograma na clínica.",
     foto: "/img/medicos/dra-caroline-molina.jpg",
     resumo:
       "Atende consultas de cardiologia e é quem realiza o ecocardiograma na clínica.",
@@ -106,6 +116,8 @@ export const medicos: Medico[] = [
     crm: "CRM-SP 155.786",
     rqe: "RQE 82808",
     apresentacao: "Médica | Atuação em cardiologia",
+    tituloSeo: "Dra. Mariana Gea Del Trejo, Cardiologia",
+    descricaoSeo: "Dra. Mariana Gea Del Trejo (CRM-SP 155.786, RQE 82808) atende na Cardio Clinic, em Presidente Prudente, e realiza a bioimpedância na clínica.",
     foto: "/img/medicos/dra-mariana-gea-del-trejo.jpg",
     resumo:
       "Atende com foco em saúde cardiovascular e mudança do estilo de vida, e é quem realiza a bioimpedância na clínica.",
@@ -128,6 +140,8 @@ export const medicos: Medico[] = [
     crm: "CRM-SP 209.746",
     rqe: "RQE 124346",
     apresentacao: "Neurologista | Eletroneuromiografia",
+    tituloSeo: "Dra. Izadora V. B. Lopes Lima, Neurologista",
+    descricaoSeo: "Dra. Izadora V. B. Lopes Lima (CRM-SP 209.746, RQE 124346), neurologista na Cardio Clinic, em Presidente Prudente. Realiza a eletroneuromiografia.",
     foto: "/img/medicos/dra-izadora-lopes-lima.jpg",
     resumo:
       "Atende consultas de neurologia e é quem realiza a eletroneuromiografia na clínica.",
@@ -149,6 +163,7 @@ export const medicos: Medico[] = [
     crm: "CRM-SP 182.984",
     rqe: "RQE 105016",
     apresentacao: "Pneumologista",
+    descricaoSeo: "Dra. Bárbara Gonçales Olivo (CRM-SP 182.984, RQE 105016), pneumologista na Cardio Clinic, em Presidente Prudente. Realiza a espirometria.",
     foto: "/img/medicos/dra-barbara-goncales-olivo.jpg",
     resumo: "Atende consultas de pneumologia e é quem realiza a espirometria na clínica.",
     formacao: [
@@ -168,6 +183,7 @@ export const medicos: Medico[] = [
     crm: "CRM-SP 217.585",
     rqe: "RQE 135239",
     apresentacao: "Médica | Atuação em geriatria",
+    tituloSeo: "Dra. Bruna Beloni Fantini, Geriatria",
     foto: "/img/medicos/dra-bruna-beloni-fantini.jpg",
     resumo: "Atende consultas voltadas à saúde da pessoa idosa.",
     formacao: [
@@ -192,6 +208,8 @@ export type Especialidade = {
   nome: string;
   titulo: string;
   chamada: string;
+  /** Meta description (ate 160 caracteres). Padrao: chamada + chamada para agendar. */
+  descricaoSeo?: string;
   motivos: string[];
   exames: string[];
 };
@@ -201,7 +219,7 @@ export const especialidades: Especialidade[] = [
     slug: "cardiologia",
     rota: "/cardiologista-presidente-prudente",
     nome: "Cardiologia",
-    titulo: "Cardiologia em Presidente Prudente",
+    titulo: "Cardiologista em Presidente Prudente",
     chamada:
       "Consulta para cuidar do coração e da circulação, com os principais exames feitos na própria clínica.",
     motivos: [
@@ -220,9 +238,10 @@ export const especialidades: Especialidade[] = [
     slug: "neurologia",
     rota: "/neurologista-presidente-prudente",
     nome: "Neurologia",
-    titulo: "Neurologia em Presidente Prudente",
+    titulo: "Neurologista em Presidente Prudente",
     chamada:
       "Consulta para investigar queixas do cérebro, dos nervos e dos músculos.",
+    descricaoSeo: "Consulta com neurologista para investigar dor de cabeça, formigamento, tontura e queixas de memória. Eletroneuromiografia na clínica. Agende pelo WhatsApp.",
     motivos: [
       "Dor de cabeça frequente",
       "Formigamento e dormência",
@@ -237,8 +256,9 @@ export const especialidades: Especialidade[] = [
     slug: "pneumologia",
     rota: "/pneumologista-presidente-prudente",
     nome: "Pneumologia",
-    titulo: "Pneumologia em Presidente Prudente",
+    titulo: "Pneumologista em Presidente Prudente",
     chamada: "Consulta para cuidar do pulmão e da respiração.",
+    descricaoSeo: "Consulta com pneumologista para cuidar do pulmão e da respiração: tosse, falta de ar, asma e DPOC. Espirometria na clínica. Agende pelo WhatsApp.",
     motivos: [
       "Tosse que não passa",
       "Falta de ar",
@@ -289,6 +309,10 @@ export type Exame = {
   nome: string;
   nomeCurto: string;
   titulo: string;
+  /** Titulo da aba/Google, sem a marca. Padrao: titulo. (O H1 continua sendo o titulo.) */
+  tituloSeo?: string;
+  /** Meta description (ate 160 caracteres). Padrao: oQueE + chamada para agendar. */
+  descricaoSeo?: string;
   /** Resumo em uma frase: aparece no topo da pagina e na lista de exames. */
   oQueE: string;
   /** Por que o medico pede o exame. */
@@ -361,6 +385,7 @@ export const exames: Exame[] = [
     nome: "Ecocardiograma",
     nomeCurto: "Ecocardiograma",
     titulo: "Ecocardiograma em Presidente Prudente",
+    descricaoSeo: "É o ultrassom do coração: mostra as cavidades, o músculo e as válvulas. Veja como é feito e agende pelo WhatsApp na Cardio Clinic.",
     oQueE:
       "É o ultrassom do coração. Mostra o tamanho das cavidades, a força do músculo e o funcionamento das válvulas.",
     porQue: [
@@ -408,6 +433,7 @@ export const exames: Exame[] = [
     nome: "Holter 24h",
     nomeCurto: "Holter 24h",
     titulo: "Holter 24h em Presidente Prudente",
+    descricaoSeo: "É a gravação do ritmo do coração por 24 horas, com um aparelho pequeno preso à cintura. Veja como é feito e agende pelo WhatsApp na Cardio Clinic.",
     oQueE:
       "É a gravação contínua do ritmo do coração durante 24 horas, feita por um aparelho pequeno preso à cintura.",
     porQue: [
@@ -572,6 +598,7 @@ export const exames: Exame[] = [
     nome: "Espirometria",
     nomeCurto: "Espirometria",
     titulo: "Espirometria em Presidente Prudente",
+    descricaoSeo: "É o exame do sopro: mede quanto ar entra e sai dos pulmões e com que velocidade. Veja como é feito e agende pelo WhatsApp na Cardio Clinic.",
     oQueE:
       "É o exame do sopro. Mede quanto ar entra e sai dos pulmões e com que velocidade. A clínica faz com e sem broncodilatador.",
     porQue: [
@@ -620,6 +647,7 @@ export const exames: Exame[] = [
     nome: "Eletroneuromiografia (ENMG)",
     nomeCurto: "Eletroneuromiografia",
     titulo: "Eletroneuromiografia em Presidente Prudente",
+    descricaoSeo: "Avalia nervos e músculos e ajuda a investigar formigamento, dormência, perda de força e dor. Veja como é feito e agende pelo WhatsApp na Cardio Clinic.",
     oQueE:
       "É o exame que avalia nervos e músculos. Ajuda a investigar formigamento, dormência, perda de força e dor.",
     porQue: [
@@ -669,6 +697,7 @@ export const exames: Exame[] = [
     nome: "Exame de Avaliação de Composição Corporal por Bioimpedância com Laudo Médico",
     nomeCurto: "Exame de Avaliação de Composição Corporal por Bioimpedância com Laudo Médico",
     titulo: "Exame de Avaliação de Composição Corporal por Bioimpedância com Laudo Médico",
+    tituloSeo: "Bioimpedância em Presidente Prudente",
     oQueE:
       "É o exame que mostra do que o seu peso é feito: quanto é gordura, quanto é músculo e quanto é água.",
     porQue: [
@@ -719,6 +748,8 @@ export const exames: Exame[] = [
     nome: "Exame do sono (Biologix)",
     nomeCurto: "Exame do sono Biologix",
     titulo: "Exame do sono Biologix em Presidente Prudente",
+    tituloSeo: "Exame do sono em Presidente Prudente",
+    descricaoSeo: "Exame do sono feito em casa para investigar apneia, com sensor no dedo e aplicativo no celular. Veja como é feito e agende pelo WhatsApp na Cardio Clinic.",
     oQueE:
       "É um exame feito em casa, durante o sono, para investigar a apneia. Usa um sensor pequeno no dedo e um aplicativo no celular.",
     porQue: [

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!esp) return {};
   return {
     title: esp.titulo,
-    description: `${esp.chamada} Agende pelo WhatsApp na Cardio Clinic.`,
+    description: esp.descricaoSeo ?? `${esp.chamada} Agende pelo WhatsApp na Cardio Clinic.`,
     alternates: { canonical: esp.rota },
   };
 }

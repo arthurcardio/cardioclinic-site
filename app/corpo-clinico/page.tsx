@@ -5,7 +5,7 @@ import { CartaoMedico, Secao, Trilha } from "@/components/Blocos";
 export const metadata: Metadata = {
   title: "Corpo clínico",
   description:
-    "Conheça os médicos da Cardio Clinic, em Presidente Prudente, com CRM, RQE e formação de cada um.",
+    "Conheça os médicos da Cardio Clinic, em Presidente Prudente: cardiologia, neurologia, pneumologia e geriatria, com CRM, RQE e formação de cada um.",
   alternates: { canonical: "/corpo-clinico" },
 };
 

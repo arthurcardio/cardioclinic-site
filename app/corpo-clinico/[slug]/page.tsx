@@ -15,9 +15,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const m = medicoPorSlug((await params).slug);
   if (!m) return {};
+  const titulo = m.tituloSeo ?? `${nomeCompleto(m)}, ${m.apresentacao}`;
   return {
-    title: `${nomeCompleto(m)}, ${m.apresentacao}`,
-    description: `${nomeCompleto(m)} (${m.crm}, ${m.rqe}) atende na Cardio Clinic, em Presidente Prudente. ${m.resumo}`,
+    title: m.tituloSeoSemMarca ? { absolute: titulo } : titulo,
+    description:
+      m.descricaoSeo ??
+      `${nomeCompleto(m)} (${m.crm}, ${m.rqe}) atende na Cardio Clinic, em Presidente Prudente. ${m.resumo}`,
     alternates: { canonical: rotaMedico(m) },
   };
 }

@@ -4,7 +4,8 @@ import { Trilha } from "@/components/Blocos";
 
 export const metadata: Metadata = {
   title: "Política de privacidade",
-  description: "Como o site da Cardio Clinic trata dados pessoais e cookies.",
+  description:
+    "Como o site da Cardio Clinic trata dados pessoais e cookies, e como pedir acesso, correção ou exclusão dos seus dados, conforme a LGPD.",
   alternates: { canonical: "/politica-de-privacidade" },
 };
 

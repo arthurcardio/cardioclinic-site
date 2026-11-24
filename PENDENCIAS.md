@@ -54,3 +54,4 @@ Como fazer: campo `whatsapp` opcional em cada médico em `lib/site.ts` e uso del
 - [ ] Blog (/conteudos).
 - [ ] Trocar o FAQ de rascunho por perguntas reais do WhatsApp.
 - [ ] E-mail @cardioclinicprudente.com.br (opcional).
+- [ ] Imagem de compartilhamento (WhatsApp, Facebook) de cada exame usa a primeira foto da página. A do MAPA (365×250) e a da eletroneuromiografia (768×462) são pequenas: ao trocar pelas fotos reais, usar arquivos com pelo menos 1200 px de largura.

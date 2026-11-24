@@ -7,7 +7,7 @@ import { BotaoWhatsApp } from "@/components/WhatsApp";
 import { LinkSeta, Secao, Trilha } from "@/components/Blocos";
 
 export const metadata: Metadata = {
-  title: "A clínica",
+  title: { absolute: "Sobre a Cardio Clinic | Clínica em Presidente Prudente" },
   description:
     "Conheça a Cardio Clinic & Multiespecialidades, em Presidente Prudente: consultas e exames no mesmo endereço, no Jardim Paulistano.",
   alternates: { canonical: "/sobre" },

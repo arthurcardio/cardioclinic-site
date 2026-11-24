@@ -6,7 +6,7 @@ import { Secao, Trilha } from "@/components/Blocos";
 export const metadata: Metadata = {
   title: "Exames em Presidente Prudente",
   description:
-    "Eletrocardiograma, ecocardiograma, Holter, MAPA, teste ergométrico, espirometria, eletroneuromiografia, bioimpedância e exame do sono feitos na Cardio Clinic, em Presidente Prudente.",
+    "ECG, ecocardiograma, Holter, MAPA, teste ergométrico, espirometria, eletroneuromiografia, bioimpedância e exame do sono, em Presidente Prudente.",
   alternates: { canonical: "/exames" },
 };
 
