@@ -8,7 +8,7 @@ REGRA PARA TODO O SITE: cada médico aparece sempre com nome, CRM-SP e RQE. O t�
 
 ## Dr. Arthur A. Zogheib Pinatto — DIRETOR TÉCNICO
 - CRM-SP 169.044 | RQE 95302 (Cardiologia)
-- Como apresentar: Cardiologista | Cardiologia do Esporte (definido pelo Dr. Arthur em 24/11/2026)
+- Como apresentar: Cardiologista | Atuação em cardiologia do esporte (definido pelo Dr. Arthur em 24/11/2026)
 - Foto: dr-arthur-zogheib-pinatto.png
 - Formação:
   - Graduado em Medicina pela Universidade do Oeste Paulista (UNOESTE)
