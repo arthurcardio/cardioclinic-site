@@ -65,8 +65,10 @@ export const medicos: Medico[] = [
     tratamento: "Dr.",
     crm: "CRM-SP 169.044",
     rqe: "RQE 95302",
-    apresentacao: "Cardiologista",
-    descricaoSeo: "Dr. Arthur A. Zogheib Pinatto (CRM-SP 169.044, RQE 95302), cardiologista e diretor técnico da Cardio Clinic, em Presidente Prudente. Faz o teste ergométrico.",
+    apresentacao: "Cardiologista | Cardiologia do Esporte",
+    tituloSeo: "Dr. Arthur Pinatto, Cardiologista e Cardiologia do Esporte",
+    tituloSeoSemMarca: true,
+    descricaoSeo: "Dr. Arthur A. Zogheib Pinatto (CRM-SP 169.044, RQE 95302), cardiologista e cardiologia do esporte, diretor técnico da Cardio Clinic. Faz o teste ergométrico.",
     foto: "/img/medicos/dr-arthur-zogheib-pinatto.jpg",
     resumo:
       "Diretor técnico da clínica. Atende consultas de cardiologia, faz a avaliação do coração de quem pratica ou quer começar a praticar esporte e realiza o teste ergométrico.",
